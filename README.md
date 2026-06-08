@@ -126,7 +126,34 @@ Restore **inside proot** (`proot-distro login debian -- tar xzf … -C /`) so li
 - Paths and UIDs shown are illustrative of one device; yours will differ.
 - This is a documentation repo (the *map*), not a one-click installer.
 
+The real, sanitized config files live in **[`docs/`](docs/)** — `tmux.conf`, the
+`gordo-mode` / `gordo-fix` bashrc block, and the two Termux:Boot scripts, with an
+install-order guide.
+
 ---
+
+## Attribution — what is and isn't mine
+
+**I did not create any of the tools used here, and I claim none of them.** They are
+the work of their respective authors and communities. I only *used* them, as tools:
+
+| Tool | Belongs to |
+|---|---|
+| **Debian** (GNU/Linux) | The Debian Project |
+| **Claude / Claude Code** | Anthropic |
+| **Termux**, **Termux:Boot** | The Termux project (Fredrik Fornwall & contributors) |
+| **proot**, **proot-distro**, **link2symlink** | their authors / maintainers |
+| **tmux** | Nicholas Marriott & contributors |
+| **f2fs** | Linux kernel developers (originally Samsung) |
+| **Tailscale, mosh, ntfy** (mentioned as prior art) | their respective authors |
+
+**What is actually mine** is narrow and I want it stated honestly: the *assembly* of
+these existing tools into this specific working ensemble, this documentation, and the
+small "gordo" glue scripts (`.tmux.conf` tweaks, `gordo-mode` / `gordo-fix`, the boot
+scripts) — which themselves do nothing but *orchestrate the tools above*. I built the
+wiring, not the parts. Nothing here should be read as me having invented Linux, the
+terminal, the container layer, or the AI. I used other people's work as tools — and I
+say so on purpose, because credit for things one didn't make should never be assumed.
 
 ## Prior art (the scattered pieces)
 
