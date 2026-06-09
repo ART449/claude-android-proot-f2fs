@@ -37,6 +37,10 @@ Debian 13 in `proot-distro` over Termux, with the working tree on **f2fs (real L
 
 One rootfs, two doors (Termux directly, or Haven over the network). Both are unprivileged user-space apps — no root, Play Integrity stays intact.
 
+> **Not a toy setup.** This is the actual environment a multi-repo software ecosystem
+> is developed and versioned from, day to day — git, `gh`, builds and all. The point of
+> documenting it is that a phone can be a real workstation, not that it's a demo.
+
 ---
 
 ## The stack, layer by layer
