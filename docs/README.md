@@ -14,6 +14,9 @@ Two execution contexts, don't mix them up:
 | [`boot/start-sshd.sh`](boot/start-sshd.sh) | **Termux** (host) | `~/.termux/boot/` |
 | [`boot/gordo-keepalive.sh`](boot/gordo-keepalive.sh) | **Termux** (host) | `~/.termux/boot/` |
 
+See also [`remote-access.md`](remote-access.md) — reaching the phone from another
+machine over WiFi / 4G / 5G (Tailscale + mosh + tmux).
+
 ## Install order
 
 1. **In Termux (host):** install [Termux:Boot](https://github.com/termux/termux-boot)

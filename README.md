@@ -132,7 +132,8 @@ Restore **inside proot** (`proot-distro login debian -- tar xzf … -C /`) so li
 
 The real, sanitized config files live in **[`docs/`](docs/)** — `tmux.conf`, the
 `gordo-mode` / `gordo-fix` bashrc block, and the two Termux:Boot scripts, with an
-install-order guide.
+install-order guide. Reaching the phone from another machine over WiFi / 4G / 5G
+(Tailscale + mosh + tmux) is covered in **[`docs/remote-access.md`](docs/remote-access.md)**.
 
 ---
 
