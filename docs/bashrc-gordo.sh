@@ -20,7 +20,9 @@ gordo-fix() {
 # 3) GORDO_TMUX: every interactive shell attaches to (or creates) session 'gordo',
 #    so Termux AND Haven always land in the SAME live session. App dies → work
 #    is still here waiting. Guards: only interactive, only when not already in tmux.
-if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && [[ $- == *i* ]]; then
+#    Escape hatch: open with GORDO_NOTMUX=1 for a plain shell that does NOT
+#    auto-attach to gordo (e.g. `GORDO_NOTMUX=1 proot-distro login debian`).
+if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && [ -z "$GORDO_NOTMUX" ] && [[ $- == *i* ]]; then
   tmux new-session -A -s gordo
 fi
 
