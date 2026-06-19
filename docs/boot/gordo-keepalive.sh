@@ -6,6 +6,10 @@
 [ -f "$HOME/.gordo_24_7" ] || exit 0
 
 # Always-on mode: wakelock + a live proot that sustains the tmux 'gordo' session.
+# SELF-HEALING holder (2026-06-19): instead of tail -f, a loop that recreates
+# 'gordo' if tmux ever dies. Keeps the process name 'gordo_holder' (detected by
+# gordo-mode status). Without this, a tmux crash after boot left the holder
+# orphaned: mode alive, session dead.
 termux-wake-lock
 proot-distro login debian -- bash -lc \
-  'tmux new-session -d -s gordo 2>/dev/null; exec -a gordo_holder tail -f /dev/null' &
+  'exec -a gordo_holder bash -c "echo \$\$ > /root/.gordo_holder.pid; while :; do tmux has-session -t gordo 2>/dev/null || tmux new-session -d -s gordo 2>/dev/null; sleep 30; done"' &
