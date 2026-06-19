@@ -40,8 +40,8 @@ gordo-mode() {
       if _gordo_holder_alive; then
         echo "🟢 24/7 was already ON (holder alive)."
       else
-        setsid bash -c 'echo $$ > /root/.gordo_holder.pid; tmux new-session -d -s gordo 2>/dev/null; exec tail -f /dev/null' </dev/null >/dev/null 2>&1 &
-        echo "🟢 24/7 ON — gordo stays alive even if you close Haven/Termux."
+        setsid bash -c 'echo $$ > /root/.gordo_holder.pid; while :; do tmux has-session -t gordo 2>/dev/null || tmux new-session -d -s gordo 2>/dev/null; sleep 30; done' </dev/null >/dev/null 2>&1 &
+        echo "🟢 24/7 ON — gordo stays alive even if you close Haven/Termux (self-heals the session if tmux dies)."
         echo "   (Full wakelock with screen off engages from the NEXT boot.)"
       fi
       ;;
